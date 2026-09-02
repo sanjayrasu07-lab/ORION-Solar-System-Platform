@@ -1,0 +1,65 @@
+{
+  "name": "orion-platform",
+  "version": "1.0.0",
+  "description": "ORION - a 3D solar-system IT development platform for freshers and beginners",
+  "main": "src/main/main.js",
+  "author": "You",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "electron-builder --win",
+    "dist:portable": "electron-builder --win portable",
+    "pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "esbuild": "^0.28.2"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "three": "^0.160.1"
+  },
+  "build": {
+    "appId": "com.orion.platform",
+    "productName": "ORION",
+    "asar": true,
+    "files": [
+      "src/**/*",
+      "package.json",
+      "!**/*.map"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ORION"
+    },
+    "portable": {
+      "artifactName": "ORION-portable-${version}.exe"
+    }
+  }
+}

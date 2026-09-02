@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ORION — Solar System Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="loadingScreen">
+      <div class="sun">☀️</div>
+      <div class="label">LOADING ORION</div>
+    </div>
+
+    <!-- Top bar -->
+    <div id="topBar" class="panel">
+      <button id="homeBtn">
+        <span>☀️</span>
+        <span class="brand">ORION</span>
+      </button>
+      <div id="hint">Drag to orbit · Scroll to zoom · Click a planet to explore</div>
+      <div id="topActions">
+        <button id="micBtn" class="icon-btn" title="Voice command (click and speak)">🎙️</button>
+        <button id="newProjectBtn" class="icon-btn" title="New project">➕</button>
+        <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+      </div>
+    </div>
+    <div id="voiceStatus"></div>
+
+    <!-- Planet toolbar (shown once a planet is focused) -->
+    <div id="planetToolbar" class="panel">
+      <button id="backHomeBtn">← Home</button>
+      <div id="planetTitleWrap">
+        <div id="planetTitle"></div>
+        <div id="planetBlurb"></div>
+      </div>
+    </div>
+
+    <!-- Content panel for the focused planet (cards/grid UI, not scattered 3D content) -->
+    <div id="contentPanel" class="panel">
+      <div id="contentBody"></div>
+    </div>
+
+    <!-- Sun / profile panel -->
+    <div id="profilePanel" class="panel">
+      <div id="profileHeader">
+        <span>☀️ Profile</span>
+        <button id="closeProfilePanel" class="icon-btn">✕</button>
+      </div>
+      <div id="profileBody"></div>
+    </div>
+
+    <div id="toast"></div>
+    <div id="footerHint">Click ☀️ for your Profile · Click a planet to explore · Click 🕳️ for Deleted projects</div>
+
+    <!-- Roaming AI companion: ORI -->
+    <div id="companion" title="Click to talk to ORI">
+      <div id="companionBubble"></div>
+      <div id="companionOrb">
+        <div id="companionEye"></div>
+      </div>
+    </div>
+    <div id="companionPanel" class="panel">
+      <div id="companionPanelHeader">
+        <span>✨ ORI</span>
+        <button id="closeCompanionPanel" class="icon-btn">✕</button>
+      </div>
+      <div id="companionContext"></div>
+      <div id="companionLog"></div>
+      <div id="companionInputRow">
+        <input id="companionInput" type="text" placeholder="Ask ORI anything…" autocomplete="off" />
+        <button id="companionMicBtn" class="icon-btn" title="Speak to ORI">🎙️</button>
+      </div>
+    </div>
+
+    <!-- Generic modal (new/edit project, confirm, prompts) -->
+    <div id="modalOverlay">
+      <div id="modalBox" class="panel"></div>
+    </div>
+
+    <!-- Settings page -->
+    <div id="settingsPage">
+      <div id="settingsHeader">
+        <button id="closeSettingsBtn">← Back</button>
+        <div id="settingsTitle">Settings</div>
+      </div>
+      <div id="settingsBody"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.bundle.js"></script>
+</body>
+</html>
